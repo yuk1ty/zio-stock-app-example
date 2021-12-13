@@ -1,10 +1,10 @@
 package com.github.yuk1ty.kernel.model.transaction
 
+import com.github.yuk1ty.kernel.model.shared.{Amount, IdGeneratorExt}
 import com.github.yuk1ty.kernel.model.stock.StockInfo.*
 import com.github.yuk1ty.kernel.model.transaction.Transaction.*
-import com.github.yuk1ty.kernel.model.shared.IdGeneratorExt
+
 import java.time.LocalDateTime
-import com.github.yuk1ty.kernel.model.shared.Amount
 
 enum Transaction {
   case Sell(

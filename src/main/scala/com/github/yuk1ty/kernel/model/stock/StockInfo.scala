@@ -1,6 +1,7 @@
 package com.github.yuk1ty.kernel.model.stock
 
 import com.github.yuk1ty.kernel.model.shared.IdGeneratorExt
+
 import java.util.UUID
 
 case class StockInfo(
