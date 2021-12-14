@@ -1,10 +1,10 @@
 package com.github.yuk1ty.adapter.driver.http
 
 import zhttp.*
-import zhttp.http._
+import zhttp.http.*
+import zio.ZIO
+import zio.logging.{Logging, log}
 
-object HealthCheckRouter {
-  val hc: Http[Any, Nothing, Request, UResponse] = Http.collect[Request] {
-    case Method.GET -> !! / "hc" => Response.text("OK")
-  }
+val hc = Http.collectM[Request] {
+  case Method.GET -> !! / "hc" => ZIO.succeed(Response.text("OK"))
 }
