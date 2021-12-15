@@ -7,7 +7,8 @@ import java.util.UUID
 case class StockInfo(
     id: StockInfo.StockInfoId,
     tickerSymbol: StockInfo.TickerSymbol,
-    name: String
+    name: String,
+    market: MarketKind
 )
 
 object StockInfo {
@@ -16,5 +17,9 @@ object StockInfo {
 
   object StockInfoId extends IdGeneratorExt {
     def apply(): StockInfoId = gen()
+  }
+
+  object TickerSymbol {
+    def apply(value: String): TickerSymbol = value
   }
 }

@@ -9,14 +9,17 @@ import io.circe.syntax.*
 
 class StockRouter(stockViewUseCase: StockViewUseCase) {
 
-  val routing = showAllStock
+  lazy val routing = showAllStock
 
   private val showAllStock: Http[Any, StockAppException, Request, UResponse] =
     Http.collectM[Request] {
       case Method.GET -> !! / "stocks" =>
         stockViewUseCase.showAllStocks().map { stocks =>
           Response.jsonString(
-            stocks.map(s => StockView(s.tickerSymbol.toString, s.name)).asJson.toString)
+            stocks
+              .map(s => StockView(s.tickerSymbol.toString, s.name, s.market.toString))
+              .asJson
+              .toString)
         }
     }
 }

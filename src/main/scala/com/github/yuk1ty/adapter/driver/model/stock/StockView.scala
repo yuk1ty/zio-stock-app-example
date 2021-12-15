@@ -5,7 +5,7 @@ import io.circe.Encoder
 import io.circe.Decoder
 import io.circe.generic.semiauto.*
 
-case class StockView(tickerSymbol: String, name: String)
+case class StockView(tickerSymbol: String, name: String, market: String)
 
 object StockView {
   implicit val encoder: Encoder[StockView] = deriveEncoder
