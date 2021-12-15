@@ -3,11 +3,13 @@ ThisBuild / version := "0.1"
 ThisBuild / scalaVersion := "3.1.0"
 ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
+ThisBuild / resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+ThisBuild / resolvers += "Sonatype01 OSS Snapshots" at "https://s01.oss.sonatype.org/content/repositories/snapshots"
 
 lazy val root = (project in file(".")).settings(
   name := "zio-webapp-tutorial",
   libraryDependencies ++= Seq(
-    "io.d11"                   %% "zhttp"            % "1.0.0.0-RC18",
+    "io.d11"                   %% "zhttp"            % "1.0.0.0-RC18+9-8f37cf8b-SNAPSHOT",
     "io.d11"                   %% "zhttp-test"       % "1.0.0.0-RC18" % Test,
     "dev.zio"                  %% "zio"              % "1.0.12",
     "dev.zio"                  %% "zio-logging"      % "0.5.14",
