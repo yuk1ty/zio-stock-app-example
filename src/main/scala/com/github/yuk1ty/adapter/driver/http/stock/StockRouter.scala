@@ -17,7 +17,7 @@ class StockRouter(stockViewUseCase: StockViewUseCase) {
         stockViewUseCase.showAllStocks().map { stocks =>
           Response.jsonString(
             stocks
-              .map(s => StockView(s.tickerSymbol.toString, s.name, s.market.toString))
+              .map(s => StockView(s.tickerSymbol.toString, s.name, s.market.ident))
               .asJson
               .toString)
         }
